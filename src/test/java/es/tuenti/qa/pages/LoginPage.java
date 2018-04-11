@@ -10,8 +10,8 @@ public class LoginPage {
     By passwordField = By.id("password");
     By submitButton = By.id("submit");
     By googleIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
-    By facebookIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
-    By twitterIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
+    By facebookIcon = By.CssSelector("ul.global-sign__social li:nth-child(1)");
+    By twitterIcon = By.CssSelector("ul.global-sign__social li:nth-child(3)");
 
     private String user;
     private String password;

@@ -58,9 +58,9 @@ public class SeleniumSteps implements En {
 
         Given("^Having a valid Twitter password$", () -> passwordTwitterEmail = "testtest");
 
-        Given("^Having a wrong password and$", () -> wrongPassword = "testtest");
+        Given("^Having a wrong password and$", () -> wrongPassword = "test");
 
-        Given("^Having a wrong phone number$", () -> wrongPhoneNumber = "testtest");
+        Given("^Having a wrong phone number$", () -> wrongPhoneNumber = "684123456");
 
         Given("^Having the home page open$", () -> driver.get(URL));
 
@@ -85,8 +85,8 @@ public class SeleniumSteps implements En {
 
 
         When("^the user clicks on the Google Icon$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+          loginPage = new LoginPage(driver,userGoogleEmail,password);
+          loginPage.clickGoogleIcon();
         });
 
         When("^those data are introduced in the Google login page$", () -> {
@@ -96,8 +96,8 @@ public class SeleniumSteps implements En {
 
 
         When("^the user clicks on the Facebook Icon$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+          loginPage = new LoginPage(driver,userFaceBookEmail,password);
+          loginPage.clickFacebookIcon();
         });
 
         When("^those data are introduced in the Facebook login page$", () -> {
@@ -106,8 +106,8 @@ public class SeleniumSteps implements En {
         });
 
         When("^the user clicks on the Twitter Icon$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+          loginPage = new LoginPage(driver,userTwitterEmail,password);
+          loginPage.clickTwitterIcon();
         });
 
         When("^those data are introduced in the Twitter login page$", () -> {
