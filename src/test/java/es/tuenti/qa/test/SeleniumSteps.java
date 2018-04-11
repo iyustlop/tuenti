@@ -90,8 +90,7 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the Google login page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+          loginPage.setGoogleAndPassword();
         });
 
 
@@ -101,8 +100,7 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the Facebook login page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+            loginPage.setFacebookAndPassword();
         });
 
         When("^the user clicks on the Twitter Icon$", () -> {
@@ -111,8 +109,7 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the Twitter login page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+            loginPage.setTwitterAndPassword();
         });
 
         Then("^a message shall appear suggesting some data are wrong$", () -> {
