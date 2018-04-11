@@ -74,9 +74,8 @@ public class SeleniumSteps implements En {
             loginPage.setPhoneAndPassword();
         });
 
-        When("^the access button is clicked #Web=Entrar en tu cuenta; Android=entrar$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+        When("^the access button is clicked$", () -> {
+            loginPage.clickAccessButton();
         });
 
         Then("^the user access to the home page$", () -> {
