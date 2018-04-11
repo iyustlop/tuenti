@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class Facebook {
 
 
-    By userFacebookField = By.id("user");
-    By passwordFacebookField = By.id("password");
+    By userFacebookField = By.id("email");
+    By passwordFacebookField = By.id("pass");
     private String user;
     private String password;
     WebDriver driver;

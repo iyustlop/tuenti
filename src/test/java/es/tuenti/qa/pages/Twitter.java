@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Twitter {
-  By userTwitterField = By.id("user");
+  By userTwitterField = By.id("username_or_email");
   By passwordTwitterField = By.id("password");
   private String user;
   private String password;
