@@ -9,17 +9,21 @@ public class LoginPage {
     By userField = By.id("user");
     By passwordField = By.id("password");
     By submitButton = By.id("submit");
-    private String phone;
+    By googleIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
+    By facebookIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
+    By twitterIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
+
+    private String user;
     private String password;
 
-    public LoginPage(WebDriver driver, String phone, String password) {
+    public LoginPage(WebDriver driver, String user, String password) {
         this.driver = driver;
-        this.phone = phone;
+        this.user = user;
         this.password = password;
     }
 
     public void setPhoneAndPassword() {
-        driver.findElement(userField).sendKeys(phone);
+        driver.findElement(userField).sendKeys(user);
         driver.findElement(passwordField).sendKeys(password);
 
     }
@@ -27,4 +31,18 @@ public class LoginPage {
     public void clickAccessButton() {
         driver.findElement(submitButton).click();
     }
+
+    public void clickGoogleIcon(){
+      driver.findElement(googleIcon).click();
+    }
+
+
+        public void clickFacebookIcon(){
+          driver.findElement(facebookIcon).click();
+        }
+
+
+            public void clickTwitterIcon(){
+              driver.findElement(twitterIcon).click();
+            }
 }
