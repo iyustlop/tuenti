@@ -10,6 +10,7 @@ Feature: Selenium Test
     And the access button is clicked
     Then the user access to the home page
     And click on profiles
+    And check name is "Ops Veinticuatro"
 
   Scenario: Happy path, Access with Google user
     Given Having a valid Google user email
