@@ -1,5 +1,8 @@
 package es.tuenti.qa.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 public class Twitter {
   By userTwitterField = By.id("user");
   By passwordTwitterField = By.id("password");
@@ -13,7 +16,7 @@ public class Twitter {
       this.password = password;
   }
 
-  public void setPhoneAndPassword() {
+  public void setTwitterPhoneAndPassword() {
       driver.findElement(userTwitterField).sendKeys(user);
       driver.findElement(passwordTwitterField).sendKeys(password);
   }

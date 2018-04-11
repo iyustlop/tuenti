@@ -9,9 +9,9 @@ public class LoginPage {
     By userField = By.id("user");
     By passwordField = By.id("password");
     By submitButton = By.id("submit");
-    By googleIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
-    By facebookIcon = By.CssSelector("ul.global-sign__social li:nth-child(1)");
-    By twitterIcon = By.CssSelector("ul.global-sign__social li:nth-child(3)");
+    By googleIcon = By.cssSelector("ul.global-sign__social li:nth-child(2)");
+    By facebookIcon = By.cssSelector("ul.global-sign__social li:nth-child(1)");
+    By twitterIcon = By.cssSelector("ul.global-sign__social li:nth-child(3)");
 
     private String user;
     private String password;
@@ -59,6 +59,6 @@ public class LoginPage {
 
     public void setTwitterAndPassword() {
       twitter = new Twitter(driver,user,password);
-      twitter.setTwitterAndPassword();
+      twitter.setTwitterPhoneAndPassword();
     }
 }

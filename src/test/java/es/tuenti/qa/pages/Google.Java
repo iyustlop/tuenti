@@ -1,5 +1,8 @@
 package es.tuenti.qa.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 public class Google {
 
   By userGoogleField = By.id("user");
@@ -14,7 +17,7 @@ public class Google {
       this.password = password;
   }
 
-  public void setPhoneAndPassword() {
+  public void setGoogleAndPassword() {
       driver.findElement(userGoogleField).sendKeys(user);
       driver.findElement(passwordGoogleField).sendKeys(password);
   }
