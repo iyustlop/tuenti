@@ -1,5 +1,6 @@
 package es.tuenti.qa.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +10,7 @@ public class LoginPage {
     By userField = By.id("user");
     By passwordField = By.id("password");
     By submitButton = By.id("submit");
+    By errorMessage = By.cssSelector("#errorMessage");
     By googleIcon = By.cssSelector("ul.global-sign__social li:nth-child(2)");
     By facebookIcon = By.cssSelector("ul.global-sign__social li:nth-child(1)");
     By twitterIcon = By.cssSelector("ul.global-sign__social li:nth-child(3)");
@@ -55,5 +57,10 @@ public class LoginPage {
     public void setTwitterAndPassword() {
         Twitter twitter = new Twitter(driver, user, password);
         twitter.setTwitterPhoneAndPassword();
+    }
+
+    public void checkErrorMessage(String message){
+        String messageRecovered = driver.findElement(errorMessage).getText();
+        Assert.assertEquals(message,messageRecovered);
     }
 }

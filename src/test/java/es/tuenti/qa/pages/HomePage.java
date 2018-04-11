@@ -10,6 +10,7 @@ public class HomePage {
 
     WebDriver driver;
     By profilesIcon = By.cssSelector("li.c026:nth-child(6) > a:nth-child(1)");
+    By nameField = By.cssSelector("fieldset.c0298:nth-child(1) > div:nth-child(2) > div:nth-child(1)");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -21,6 +22,7 @@ public class HomePage {
     }
 
     public void checkName(String name) {
-//        Assert.assertEquals(name,driver.findElement());
+        String nameRecovered = driver.findElement(nameField).getText().toString();
+        Assert.assertEquals(name, nameRecovered);
     }
 }

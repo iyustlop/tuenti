@@ -12,6 +12,24 @@ Feature: Selenium Test
     And click on profiles
     And check name is "Ops Veinticuatro"
 
+  Scenario: Wrong phone number
+    Given Having a wrong phone number
+    And Having a correct password
+    And Having the home page open
+    When the user clicks on the sign in link
+    And those data are introduced in the login page
+    And the access button is clicked
+    Then the foolowing message "Some of your details are incorrect" shall appear
+
+  Scenario: Wrong password
+    Given Having a correct phone number
+    And Having a wrong password
+    And Having the home page open
+    When the user clicks on the sign in link
+    And those data are introduced in the login page
+    And the access button is clicked
+    Then the foolowing message "Some of your details are incorrect" shall appear
+
   Scenario: Happy path, Access with Google user
     Given Having a valid Google user email
     And Having a valid Google password
@@ -38,19 +56,3 @@ Feature: Selenium Test
     And the user clicks on the Twitter Icon
     And those data are introduced in the Twitter login page
     Then the user access to the home page
-
-  Scenario: Wrong phone number
-    Given Having a wrong phone number
-    And Having a correct password
-    And Having the home page open
-    When the user clicks on the sign in link
-    And those data are introduced in the login page
-    Then a message shall appear suggesting some data are wrong
-
-  Scenario: Wrong password
-    Given Having a correct phone number
-    And Having a wrong password
-    And Having the home page open
-    When the user clicks on the sign in link
-    And those data are introduced in the login page
-    Then a message shall appear suggesting some data are wrong

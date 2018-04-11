@@ -2,6 +2,7 @@ package es.tuenti.qa.test;
 
 import cucumber.api.Scenario;
 import cucumber.api.java8.En;
+import es.tuenti.qa.pages.HomePage;
 import es.tuenti.qa.pages.LoginPage;
 import es.tuenti.qa.pages.TuentiPage;
 import org.openqa.selenium.WebDriver;
@@ -14,21 +15,15 @@ public class SeleniumSteps implements En {
 
     private static final String GECKO_DRIVER = "src/test/resources/driver/geckodriver";
     private static final String URL = "http://www.tuenti.es";
-    private String wrongPhoneNumber;
-    private String wrongPassword;
+    WebDriver driver;
+    TuentiPage tuentiPage;
+    LoginPage loginPage;
+    HomePage homePage;
     private String phoneNumber;
     private String password;
     private String userGoogleEmail;
-    private String passwordGoogleEmail;
     private String userTwitterEmail;
-    private String passwordTwitterEmail;
     private String userFaceBookEmail;
-    private String passwordFaceBookEmail;
-
-    WebDriver driver;
-
-    TuentiPage tuentiPage;
-    LoginPage loginPage;
 
 
     public SeleniumSteps() {
@@ -48,19 +43,19 @@ public class SeleniumSteps implements En {
 
         Given("^Having a valid Google user email$", () -> userGoogleEmail = "ops_internacional+24@tuenti.com");
 
-        Given("^Having a valid Google password$", () -> passwordGoogleEmail = "testtest");
+        Given("^Having a valid Google password$", () -> password = "testtest");
 
         Given("^Having a valid Facebook user$", () -> userFaceBookEmail = "ops_internacional+24@tuenti.com");
 
-        Given("^Having a valid Facebook password$", () -> passwordFaceBookEmail = "testtest");
+        Given("^Having a valid Facebook password$", () -> password = "testtest");
 
         Given("^Having a valid Twitter user$", () -> userTwitterEmail = "ops_internacional+24@tuenti.com");
 
-        Given("^Having a valid Twitter password$", () -> passwordTwitterEmail = "testtest");
+        Given("^Having a valid Twitter password$", () -> password = "testtest");
 
-        Given("^Having a wrong password$", () ->  wrongPassword = "test");
+        Given("^Having a wrong password$", () -> password = "test");
 
-        Given("^Having a wrong phone number$", () -> wrongPhoneNumber = "684123456");
+        Given("^Having a wrong phone number$", () -> phoneNumber = "684123456");
 
         Given("^Having the home page open$", () -> driver.get(URL));
 
@@ -70,7 +65,7 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the login page$", () -> {
-            loginPage = new LoginPage(driver,phoneNumber,password);
+            loginPage = new LoginPage(driver, phoneNumber, password);
             loginPage.setPhoneAndPassword();
         });
 
@@ -78,25 +73,18 @@ public class SeleniumSteps implements En {
             loginPage.clickAccessButton();
         });
 
-        Then("^the user access to the home page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-
         When("^the user clicks on the Google Icon$", () -> {
-          loginPage = new LoginPage(driver,userGoogleEmail,password);
-          loginPage.clickGoogleIcon();
+            loginPage = new LoginPage(driver, userGoogleEmail, password);
+            loginPage.clickGoogleIcon();
         });
 
         When("^those data are introduced in the Google login page$", () -> {
-          loginPage.setGoogleAndPassword();
+            loginPage.setGoogleAndPassword();
         });
 
-
         When("^the user clicks on the Facebook Icon$", () -> {
-          loginPage = new LoginPage(driver,userFaceBookEmail,password);
-          loginPage.clickFacebookIcon();
+            loginPage = new LoginPage(driver, userFaceBookEmail, password);
+            loginPage.clickFacebookIcon();
         });
 
         When("^those data are introduced in the Facebook login page$", () -> {
@@ -104,22 +92,32 @@ public class SeleniumSteps implements En {
         });
 
         When("^the user clicks on the Twitter Icon$", () -> {
-          loginPage = new LoginPage(driver,userTwitterEmail,password);
-          loginPage.clickTwitterIcon();
+            loginPage = new LoginPage(driver, userTwitterEmail, password);
+            loginPage.clickTwitterIcon();
         });
 
         When("^those data are introduced in the Twitter login page$", () -> {
             loginPage.setTwitterAndPassword();
         });
 
-        Then("^a message shall appear suggesting some data are wrong$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+        Then("^the user access to the home page$", () -> {
+            homePage = new HomePage(driver);
         });
 
+        Then("^click on profiles$", () -> {
+            homePage.clickProfiles();
+        });
+
+        Then("^check name is \"([^\"]*)\"$", (String arg1) -> {
+            homePage.checkName(arg1);
+        });
+
+        Then("^the foolowing message \"([^\"]*)\" shall appear$", (String arg1) -> {
+            loginPage.checkErrorMessage(arg1);
+        });
 
         After((Scenario scenario) -> {
-           driver.quit();
+            driver.quit();
         });
 
     }
