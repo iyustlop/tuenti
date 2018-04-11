@@ -8,6 +8,9 @@ public class LoginPage {
     WebDriver driver;
     By userField = By.id("user");
     By passwordField = By.id("password");
+
+
+  
     By submitButton = By.id("submit");
     By googleIcon = By.CssSelector("ul.global-sign__social li:nth-child(2)");
     By facebookIcon = By.CssSelector("ul.global-sign__social li:nth-child(1)");
@@ -15,6 +18,10 @@ public class LoginPage {
 
     private String user;
     private String password;
+
+    Google google;
+    Twitter twitter;
+    Facebook facebook;
 
     public LoginPage(WebDriver driver, String user, String password) {
         this.driver = driver;
@@ -25,7 +32,6 @@ public class LoginPage {
     public void setPhoneAndPassword() {
         driver.findElement(userField).sendKeys(user);
         driver.findElement(passwordField).sendKeys(password);
-
     }
 
     public void clickAccessButton() {
@@ -44,5 +50,20 @@ public class LoginPage {
 
             public void clickTwitterIcon(){
               driver.findElement(twitterIcon).click();
+            }
+
+            public void setGoogleAndPassword() {
+                driver.findElement(userField).sendKeys(user);
+                driver.findElement(passwordField).sendKeys(password);
+            }
+
+            public void setFacebookAndPassword() {
+                driver.findElement(userField).sendKeys(user);
+                driver.findElement(passwordField).sendKeys(password);
+            }
+
+            public void setTwitterAndPassword() {
+                driver.findElement(userField).sendKeys(user);
+                driver.findElement(passwordField).sendKeys(password);
             }
 }
