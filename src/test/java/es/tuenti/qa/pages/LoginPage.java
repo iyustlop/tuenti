@@ -12,13 +12,8 @@ public class LoginPage {
     By googleIcon = By.cssSelector("ul.global-sign__social li:nth-child(2)");
     By facebookIcon = By.cssSelector("ul.global-sign__social li:nth-child(1)");
     By twitterIcon = By.cssSelector("ul.global-sign__social li:nth-child(3)");
-
     private String user;
     private String password;
-
-    Google google;
-    Twitter twitter;
-    Facebook facebook;
 
     public LoginPage(WebDriver driver, String user, String password) {
         this.driver = driver;
@@ -35,30 +30,30 @@ public class LoginPage {
         driver.findElement(submitButton).click();
     }
 
-    public void clickGoogleIcon(){
+    public void clickGoogleIcon() {
         driver.findElement(googleIcon).click();
     }
 
-    public void clickFacebookIcon(){
+    public void clickFacebookIcon() {
         driver.findElement(facebookIcon).click();
     }
 
-    public void clickTwitterIcon(){
+    public void clickTwitterIcon() {
         driver.findElement(twitterIcon).click();
     }
 
     public void setGoogleAndPassword() {
-        google = new Google(driver,user,password);
+        Google google = new Google(driver,user,password);
         google.setGoogleAndPassword();
     }
 
     public void setFacebookAndPassword() {
-      facebook = new Facebook(driver,user,password);
-      facebook.setFacebookAndPassword();
+        Facebook facebook = new Facebook(driver,user,password);
+        facebook.setFacebookAndPassword();
     }
 
     public void setTwitterAndPassword() {
-      twitter = new Twitter(driver,user,password);
-      twitter.setTwitterPhoneAndPassword();
+        Twitter twitter = new Twitter(driver, user, password);
+        twitter.setTwitterPhoneAndPassword();
     }
 }

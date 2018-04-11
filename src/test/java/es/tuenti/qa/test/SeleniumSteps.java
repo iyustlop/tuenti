@@ -58,7 +58,7 @@ public class SeleniumSteps implements En {
 
         Given("^Having a valid Twitter password$", () -> passwordTwitterEmail = "testtest");
 
-        Given("^Having a wrong password and$", () -> wrongPassword = "test");
+        Given("^Having a wrong password$", () ->  wrongPassword = "test");
 
         Given("^Having a wrong phone number$", () -> wrongPhoneNumber = "684123456");
 
@@ -116,6 +116,7 @@ public class SeleniumSteps implements En {
             // Write code here that turns the phrase above into concrete actions
             throw new PendingException();
         });
+
 
         After((Scenario scenario) -> {
            driver.quit();

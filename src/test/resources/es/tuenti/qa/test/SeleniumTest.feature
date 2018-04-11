@@ -37,15 +37,15 @@ Feature: Selenium Test
     When those data are introduced in the Twitter login page
     Then the user access to the home page
 
-  Scenario: Wrong phone number.
+  Scenario: Wrong phone number
     Given Having a wrong phone number
     And Having a correct password
     And Having the home page open
-    When the user clicks on the sign in link and
+    When the user clicks on the sign in link
     When those data are introduced in the login page
     Then a message shall appear suggesting some data are wrong
 
-  Scenario: Wrong password.
+  Scenario: Wrong password
     Given Having a correct phone number
     And Having a wrong password
     And Having the home page open
