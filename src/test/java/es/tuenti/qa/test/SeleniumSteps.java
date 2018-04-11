@@ -2,6 +2,7 @@ package es.tuenti.qa.test;
 
 import cucumber.api.Scenario;
 import cucumber.api.java8.En;
+import es.tuenti.qa.pages.LoginPage;
 import es.tuenti.qa.pages.TuentiPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,6 +28,7 @@ public class SeleniumSteps implements En {
     WebDriver driver;
 
     TuentiPage tuentiPage;
+    LoginPage loginPage;
 
 
     public SeleniumSteps() {
@@ -68,8 +70,8 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the login page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+            loginPage = new LoginPage(driver,phoneNumber,password);
+            loginPage.setPhoneAndPassword();
         });
 
         When("^the access button is clicked #Web=Entrar en tu cuenta; Android=entrar$", () -> {

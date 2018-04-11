@@ -14,7 +14,7 @@ public class LoginPage {
         this.password = password;
     }
 
-    private void setPhoneAndPassword(){
+    public void setPhoneAndPassword(){
 
     }
 }
