@@ -2,6 +2,7 @@ package es.tuenti.qa.test;
 
 import cucumber.api.Scenario;
 import cucumber.api.java8.En;
+import es.tuenti.qa.pages.TuentiPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import sun.security.util.PendingException;
@@ -12,13 +13,20 @@ public class SeleniumSteps implements En {
 
     private static final String GECKO_DRIVER = "src/test/resources/driver/geckodriver";
     private static final String URL = "http://www.tuenti.es";
+    private String wrongPhoneNumber;
+    private String wrongPassword;
     private String phoneNumber;
     private String password;
     private String userGoogleEmail;
     private String passwordGoogleEmail;
     private String userTwitterEmail;
+    private String passwordTwitterEmail;
+    private String userFaceBookEmail;
+    private String passwordFaceBookEmail;
 
     WebDriver driver;
+
+    TuentiPage tuentiPage;
 
 
     public SeleniumSteps() {
@@ -36,11 +44,27 @@ public class SeleniumSteps implements En {
 
         Given("^Having a correct password$", () -> password = "testtest");
 
+        Given("^Having a valid Google user email$", () -> userGoogleEmail = "ops_internacional+24@tuenti.com");
+
+        Given("^Having a valid Google password$", () -> passwordGoogleEmail = "testtest");
+
+        Given("^Having a valid Facebook user$", () -> userFaceBookEmail = "ops_internacional+24@tuenti.com");
+
+        Given("^Having a valid Facebook password$", () -> passwordFaceBookEmail = "testtest");
+
+        Given("^Having a valid Twitter user$", () -> userTwitterEmail = "ops_internacional+24@tuenti.com");
+
+        Given("^Having a valid Twitter password$", () -> passwordTwitterEmail = "testtest");
+
+        Given("^Having a wrong password and$", () -> wrongPassword = "testtest");
+
+        Given("^Having a wrong phone number$", () -> wrongPhoneNumber = "testtest");
+
         Given("^Having the home page open$", () -> driver.get(URL));
 
-        When("^the user clicks on the sign in link  # Web=entrar; Android=inicia sesion\\.$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
+        When("^the user clicks on the sign in link$", () -> {
+            tuentiPage = new TuentiPage(driver);
+            tuentiPage.clickEntrar();
         });
 
         When("^those data are introduced in the login page$", () -> {
@@ -58,16 +82,6 @@ public class SeleniumSteps implements En {
             throw new PendingException();
         });
 
-        Given("^Having a valid Google user email$", () -> userGoogleEmail = "ops_internacional+24@tuenti.com");
-
-        Given("^Having a valid Google password$", () -> passwordGoogleEmail = "testtest");
-
-
-
-        When("^the user clicks on the sign in link and$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
 
         When("^the user clicks on the Google Icon$", () -> {
             // Write code here that turns the phrase above into concrete actions
@@ -79,20 +93,6 @@ public class SeleniumSteps implements En {
             throw new PendingException();
         });
 
-        Given("^Having a valid Facebook user$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-        Given("^Having a valid Facebook password$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-        When("^the user clicks on the sign in link$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
 
         When("^the user clicks on the Facebook Icon$", () -> {
             // Write code here that turns the phrase above into concrete actions
@@ -100,16 +100,6 @@ public class SeleniumSteps implements En {
         });
 
         When("^those data are introduced in the Facebook login page$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-        Given("^Having a valid Twitter user$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-        Given("^Having a valid Twitter password$", () -> {
             // Write code here that turns the phrase above into concrete actions
             throw new PendingException();
         });
@@ -124,18 +114,7 @@ public class SeleniumSteps implements En {
             throw new PendingException();
         });
 
-        Given("^Having a wrong phone number$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
         Then("^a message shall appear suggesting some data are wrong$", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new PendingException();
-        });
-
-
-        Given("^Having a wrong password and$", () -> {
             // Write code here that turns the phrase above into concrete actions
             throw new PendingException();
         });
