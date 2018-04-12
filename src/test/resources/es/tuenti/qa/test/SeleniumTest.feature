@@ -12,6 +12,19 @@ Feature: Selenium Test
     And click on profiles
     And check name is "Ops Veinticuatro"
 
+  Scenario: Happy path, Mis agendas
+    Given Having a correct phone number
+    And Having a correct password
+    And Having the home page open
+    When the user clicks on the sign in link
+    And those data are introduced in the login page
+    And the access button is clicked
+    Then the user access to the home page
+    And click on profiles
+    And click on Mis Agendas
+    And check "Aquaris M5" agenda
+
+
   Scenario: Wrong phone number
     Given Having a wrong phone number
     And Having a correct password
