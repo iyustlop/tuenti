@@ -29,7 +29,6 @@ public class SeleniumSteps implements En {
     public SeleniumSteps() {
 
         Before((Scenario scenario) -> {
-
             System.setProperty("webdriver.gecko.driver", GECKO_DRIVER);
             driver = new FirefoxDriver();
 
@@ -109,16 +108,8 @@ public class SeleniumSteps implements En {
             homePage.clickProfiles();
         });
 
-        Then("^click on Mis Agendas$", () -> {
-            homePage.clickMisAgendas();
-        });
-
         Then("^check name is \"([^\"]*)\"$", (String arg1) -> {
             homePage.checkName(arg1);
-        });
-
-        Then("^check \"([^\"]*)\" agenda$", (String arg1) -> {
-            homePage.checkAgenda(arg1);
         });
 
         Then("^the foolowing message \"([^\"]*)\" shall appear$", (String arg1) -> {
@@ -126,7 +117,8 @@ public class SeleniumSteps implements En {
         });
 
         After((Scenario scenario) -> {
-            driver.quit();
+            driver.manage().deleteAllCookies()
+            driver.close();
         });
 
     }
