@@ -117,7 +117,7 @@ public class SeleniumSteps implements En {
         });
 
         After((Scenario scenario) -> {
-            driver.manage().deleteAllCookies()
+            driver.manage().deleteAllCookies();
             driver.close();
         });
 
